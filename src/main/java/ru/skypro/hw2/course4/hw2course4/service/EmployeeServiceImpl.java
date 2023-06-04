@@ -20,44 +20,72 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> getAllEmployees() {
         return employeeRepository.getAllEmployees();
+
+
     }
 
     @Override
-    public int getSumOfSalary() {
+    public void addEmployee(Employee employee) {
+        employeeRepository.addEmployee(employee);
 
-        int sum = 0;
-        for (Employee employee : getAllEmployees()) {
-            sum += employee.getSalary();
-        }
-        return sum;
     }
 
     @Override
-    public Employee getMinSalaryEmployee() {
-        List<Employee> sortedList = getAllEmployees().stream()
-                .sorted(Comparator.comparing(Employee::getSalary))
-                .toList();
-        return sortedList.get(0);
+    public Employee updateEmployeeById(int id) {
+        return null;
     }
 
     @Override
-    public Employee getMaxSalaryEmployee() {
-        List<Employee> sortedList = getAllEmployees().stream()
-                .sorted(Comparator.comparing(Employee::getSalary))
-                .toList();
-        return sortedList.get(sortedList.size() - 1);
+    public Employee getEmployeeById(int id) {
+        return null;
     }
 
     @Override
-    public List<Employee> getEmployeeWithSalaryAboveAverage() {
-        List<Employee> employeeList = getAllEmployees();
-        int sum = 0;
-        for (Employee employee : employeeList) {
-            sum += employee.getSalary();
-        }
-        int average = sum / employeeList.size();
-        return employeeList.stream()
-                .filter(employee -> employee.getSalary() > average)
-                .toList();
+    public void deleteEmployeeById(int id) {
+
     }
+
+    @Override
+    public List<Employee> getEmployeeWithSalaryMoreThan() {
+        return null;
+    }
+
+    //    @Override
+//    public int getSumOfSalary() {
+//
+//        int sum = 0;
+//        for (Employee employee : getAllEmployees()) {
+//            sum += employee.getSalary();
+//        }
+//        return sum;
+//    }
+//
+//    @Override
+//    public Employee getMinSalaryEmployee() {
+//        List<Employee> sortedList = getAllEmployees().stream()
+//                .sorted(Comparator.comparing(Employee::getSalary))
+//                .toList();
+//        return sortedList.get(0);
+//    }
+//
+//    @Override
+//    public Employee getMaxSalaryEmployee() {
+//        List<Employee> sortedList = getAllEmployees().stream()
+//                .sorted(Comparator.comparing(Employee::getSalary))
+//                .toList();
+//        return sortedList.get(sortedList.size() - 1);
+//    }
+//
+//    @Override
+//    public List<Employee> getEmployeeWithSalaryAboveAverage() {
+//        List<Employee> employeeList = getAllEmployees();
+//        int sum = 0;
+//        for (Employee employee : employeeList) {
+//            sum += employee.getSalary();
+//        }
+//        int average = sum / employeeList.size();
+//        return employeeList.stream()
+//                .filter(employee -> employee.getSalary() > average)
+//                .toList();
+//    }
 }

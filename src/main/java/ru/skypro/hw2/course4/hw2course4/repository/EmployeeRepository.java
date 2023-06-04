@@ -7,4 +7,6 @@ import java.util.List;
 public interface EmployeeRepository {
 
     public List<Employee> getAllEmployees();
+
+//    public void addEmployee(Employee employee);
 }

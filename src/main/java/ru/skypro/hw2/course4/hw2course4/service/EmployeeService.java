@@ -7,13 +7,24 @@ import java.util.List;
 public interface EmployeeService {
     List<Employee> getAllEmployees();
 
-    int getSumOfSalary();
+    void addEmployee(Employee employee);
 
-    Employee getMinSalaryEmployee();
+    Employee updateEmployeeById(int id);
 
-    Employee getMaxSalaryEmployee();
+    Employee getEmployeeById(int id);
 
-    List<Employee> getEmployeeWithSalaryAboveAverage();
+    void deleteEmployeeById(int id);
+
+    List<Employee> getEmployeeWithSalaryMoreThan();
+
+
+//    int getSumOfSalary();
+//
+//    Employee getMinSalaryEmployee();
+//
+//    Employee getMaxSalaryEmployee();
+//
+//    List<Employee> getEmployeeWithSalaryAboveAverage();
 
 
 }
