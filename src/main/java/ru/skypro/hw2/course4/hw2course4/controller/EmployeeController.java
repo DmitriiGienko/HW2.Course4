@@ -1,8 +1,7 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
@@ -19,7 +18,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Employee> getAllEmployee() {
         return employeeService.getAllEmployees();
     }
@@ -42,5 +41,31 @@ public class EmployeeController {
     @GetMapping("/high-salary")
     public List<Employee> getEmployeeWithSalaryAboveAverage() {
         return employeeService.getEmployeeWithSalaryAboveAverage();
+    }
+
+    @GetMapping("/{name}")
+    public int getEmployeeWithName(@PathVariable String name) {
+//        return employeeService.getEmployeeWithSalaryAboveAverage();
+        int sal = 0;
+        List<Employee> employeeList = employeeService.getAllEmployees();
+        for (Employee employee : employeeList) {
+            if (employee.getName().equals(name)) {
+                sal = employee.getSalary();
+               break;
+            } else sal = 0;
+        }
+        return sal;
+    }
+
+    @GetMapping("/salary/higer")
+    public int getEmpWithSalaryMoreThan(@RequestParam("compSal") Integer compSal) {
+        List<Employee> employeeList = employeeService.getAllEmployees();
+        int sum = 0;
+        for (Employee employee : employeeList) {
+            if (employee.getSalary() > compSal) {
+                sum++;
+            }
+        }
+        return sum;
     }
 }
