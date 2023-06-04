@@ -60,4 +60,10 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .filter(employee -> employee.getSalary() > average)
                 .toList();
     }
+
+    @Override
+    public void addEmployee(Employee employee) {
+        employeeRepository.getAllEmployees().add(employee);
+
+    }
 }

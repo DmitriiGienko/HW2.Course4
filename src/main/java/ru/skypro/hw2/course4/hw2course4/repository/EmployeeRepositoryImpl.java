@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-    private final List<Employee> employeeList = List.of(
+    private  List<Employee> employeeList = List.of(
             new Employee("Катя", 90_000),
             new Employee("Дима", 102_000),
             new Employee("Олег", 80_000),
@@ -20,4 +20,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public List<Employee> getAllEmployees() {
         return employeeList;
     }
+
+
+
+
+
 }

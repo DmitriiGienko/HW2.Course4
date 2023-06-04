@@ -5,6 +5,7 @@ import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
 import java.util.List;
 
 public interface EmployeeService {
+
     List<Employee> getAllEmployees();
 
     int getSumOfSalary();
@@ -14,6 +15,9 @@ public interface EmployeeService {
     Employee getMaxSalaryEmployee();
 
     List<Employee> getEmployeeWithSalaryAboveAverage();
+
+     void addEmployee(Employee employee);
+
 
 
 }
