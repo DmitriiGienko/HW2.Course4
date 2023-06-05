@@ -8,7 +8,7 @@ import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 
 
 public class EmployeeController {
@@ -24,9 +24,28 @@ public class EmployeeController {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping("/")
-    public void addEmployee(@RequestParam Employee employee) {
-        employeeService.addEmployee(employee);
+    @PostMapping("/employees")
+    public void addEmployee(@RequestParam(required = false) String name,
+                            @RequestParam(required = false) int salary) {
+        employeeService.addEmployee(new Employee(name, salary));
+    }
+
+    @PutMapping("/employees/{id}")
+    public void updateEmployee(@RequestParam int id,
+                               @RequestParam String newName,
+                               @RequestParam int newSalary) {
+        employeeService.updateEmployeeById(id, newName, newSalary);
+
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public void deleteEmployee(@RequestParam int id) {
+        employeeService.deleteEmployeeById(id);
+    }
+
+    @GetMapping("/employees/{id}")
+    public void getEmployeeById(@PathVariable int id) {
+        employeeService.getInfoEmployeeById(id);
     }
 
 

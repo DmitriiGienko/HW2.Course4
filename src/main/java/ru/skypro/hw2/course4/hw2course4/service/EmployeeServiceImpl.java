@@ -25,23 +25,43 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void addEmployee(Employee employee) {
-        employeeRepository.addEmployee(employee);
+    public List<Employee> addEmployee(Employee employee) {
+        List<Employee> newEmp = employeeRepository.getAllEmployees();
+        newEmp.add(employee);
+        return newEmp;
+
 
     }
 
     @Override
-    public Employee updateEmployeeById(int id) {
-        return null;
+    public Employee updateEmployeeById(int id, String name, int salary) {
+        Employee emp = null;
+        for (int i = 0; i < employeeRepository.getAllEmployees().size(); i++) {
+            if (employeeRepository.getAllEmployees().get(i).getId() == id) {
+                emp = employeeRepository.getAllEmployees().get(i);
+                employeeRepository.getAllEmployees().get(i).setName(name);
+                employeeRepository.getAllEmployees().get(i).setSalary(salary);
+            }
+        }
+        return emp;
     }
 
     @Override
-    public Employee getEmployeeById(int id) {
-        return null;
+    public Employee getInfoEmployeeById(int id) {
+        Employee employee = getAllEmployees().stream()
+                .filter(employee1 -> employee1.getId() == id)
+                .findAny().orElse(null);
+
+        return employee;
     }
 
     @Override
     public void deleteEmployeeById(int id) {
+        for (int i = 0; i < employeeRepository.getAllEmployees().size(); i++) {
+            if (employeeRepository.getAllEmployees().get(i).getId() == id) {
+                employeeRepository.getAllEmployees().remove(employeeRepository.getAllEmployees().get(i));
+            }
+        }
 
     }
 
