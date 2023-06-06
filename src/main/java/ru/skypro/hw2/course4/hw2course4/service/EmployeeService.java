@@ -9,22 +9,13 @@ public interface EmployeeService {
 
     List<Employee> addEmployee(Employee employee);
 
-    Employee updateEmployeeById(int id, String name,int salary);
+    Employee updateEmployeeById(int id, String name, int salary);
 
     Employee getInfoEmployeeById(int id);
 
     void deleteEmployeeById(int id);
 
     List<Employee> getEmployeeWithSalaryMoreThan(int salary);
-
-
-//    int getSumOfSalary();
-//
-//    Employee getMinSalaryEmployee();
-//
-//    Employee getMaxSalaryEmployee();
-//
-//    List<Employee> getEmployeeWithSalaryAboveAverage();
 
 
 }
