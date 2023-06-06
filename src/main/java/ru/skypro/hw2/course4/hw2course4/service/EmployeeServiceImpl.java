@@ -36,11 +36,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployeeById(int id, String name, int salary) {
         Employee emp = null;
-        for (int i = 0; i < employeeRepository.getAllEmployees().size(); i++) {
-            if (employeeRepository.getAllEmployees().get(i).getId() == id) {
-                emp = employeeRepository.getAllEmployees().get(i);
-                employeeRepository.getAllEmployees().get(i).setName(name);
-                employeeRepository.getAllEmployees().get(i).setSalary(salary);
+        List<Employee> list = employeeRepository.getAllEmployees();
+        for (Employee employee : list) {
+            if (employee.getId() == id) {
+                emp = employee;
+                employee.setName(name);
+                employee.setSalary(salary);
             }
         }
         return emp;
@@ -48,27 +49,52 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getInfoEmployeeById(int id) {
-        Employee employee = getAllEmployees().stream()
-                .filter(employee1 -> employee1.getId() == id)
-                .findAny().orElse(null);
 
-        return employee;
+        Employee emp = null;
+        List<Employee> list = employeeRepository.getAllEmployees();
+        for (Employee employee : list) {
+            if (employee.getId() == id) {
+                emp = employee;
+            }
+        }
+        return emp;
     }
 
     @Override
     public void deleteEmployeeById(int id) {
-        for (int i = 0; i < employeeRepository.getAllEmployees().size(); i++) {
-            if (employeeRepository.getAllEmployees().get(i).getId() == id) {
-                employeeRepository.getAllEmployees().remove(employeeRepository.getAllEmployees().get(i));
+        List<Employee> list = employeeRepository.getAllEmployees();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == id) {
+                list.remove(list.get(i));
             }
         }
-
     }
 
     @Override
-    public List<Employee> getEmployeeWithSalaryMoreThan() {
-        return null;
+    public List<Employee> getEmployeeWithSalaryMoreThan(int higher) {
+        List<Employee> employeeList = getAllEmployees();
+        int sum = 0;
+        for (Employee employee : employeeList) {
+            sum += employee.getSalary();
+        }
+        int average = sum / employeeList.size();
+        return employeeList.stream()
+                .filter(employee -> employee.getSalary() > higher)
+                .toList();
     }
+
+//    @Override
+//    public List<Employee> getEmployeeWithSalaryAboveAverage() {
+//        List<Employee> employeeList = getAllEmployees();
+//        int sum = 0;
+//        for (Employee employee : employeeList) {
+//            sum += employee.getSalary();
+//        }
+//        int average = sum / employeeList.size();
+//        return employeeList.stream()
+//                .filter(employee -> employee.getSalary() > average)
+//                .toList();
+//    }
 
     //    @Override
 //    public int getSumOfSalary() {
@@ -96,16 +122,5 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        return sortedList.get(sortedList.size() - 1);
 //    }
 //
-//    @Override
-//    public List<Employee> getEmployeeWithSalaryAboveAverage() {
-//        List<Employee> employeeList = getAllEmployees();
-//        int sum = 0;
-//        for (Employee employee : employeeList) {
-//            sum += employee.getSalary();
-//        }
-//        int average = sum / employeeList.size();
-//        return employeeList.stream()
-//                .filter(employee -> employee.getSalary() > average)
-//                .toList();
-//    }
+
 }

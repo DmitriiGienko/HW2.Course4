@@ -15,7 +15,7 @@ public interface EmployeeService {
 
     void deleteEmployeeById(int id);
 
-    List<Employee> getEmployeeWithSalaryMoreThan();
+    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
 
 
 //    int getSumOfSalary();

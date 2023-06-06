@@ -1,6 +1,7 @@
 package ru.skypro.hw2.course4.hw2course4.exceptions;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -14,7 +15,7 @@ public class EmployeeExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<?> handleIOException(IOException ioException) {
         // Возвращает статус 404 (Not Found) при возникновении IOException.
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatusCode.);
     }
 
     // Метод обработки исключений SQLException.
@@ -23,7 +24,7 @@ public class EmployeeExceptionHandler {
     public ResponseEntity<?> handleSQLException(SQLException sqlException) {
         // Возвращает статус 500 (Internal Server Error)
         // при возникновении SQLException.
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST(400, HttpStatus.Series.CLIENT_ERROR, "Bad Request"));
     }
 
     // Метод обработки исключений Exception.

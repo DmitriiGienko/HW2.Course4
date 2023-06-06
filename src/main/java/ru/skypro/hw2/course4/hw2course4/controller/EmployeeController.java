@@ -1,6 +1,5 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
@@ -19,12 +18,12 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/allEmployees")
+    @GetMapping("/showAllEmployees")
     public List<Employee> getAllEmployee() {
         return employeeService.getAllEmployees();
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/addEmployees")
     public void addEmployee(@RequestParam(required = false) String name,
                             @RequestParam(required = false) int salary) {
         employeeService.addEmployee(new Employee(name, salary));
@@ -38,34 +37,20 @@ public class EmployeeController {
 
     }
 
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/deleteEmployees/{id}")
     public void deleteEmployee(@RequestParam int id) {
         employeeService.deleteEmployeeById(id);
     }
 
-    @GetMapping("/employees/{id}")
-    public void getEmployeeById(@PathVariable int id) {
-        employeeService.getInfoEmployeeById(id);
+    @GetMapping("/employeesById/{id}")
+    public Employee getEmployeeById(@PathVariable int id) {
+        return employeeService.getInfoEmployeeById(id);
+    }
+
+    @GetMapping("/salaryHigherThan")
+    public List<Employee> getEmployeeWithSalaryAboveAverage(@RequestParam int compareSalary) {
+        return employeeService.getEmployeeWithSalaryMoreThan(compareSalary);
     }
 
 
-//    @GetMapping("/salary/max")
-//    public Employee getMaxSalaryEmployee() {
-//        return employeeService.getMaxSalaryEmployee();
-//    }
-//
-//    @GetMapping("/salary/min")
-//    public Employee getMinSalaryEmployee() {
-//        return employeeService.getMinSalaryEmployee();
-//    }
-//
-//    @GetMapping("/salary/sum")
-//    public int getSumOfSalary() {
-//        return employeeService.getSumOfSalary();
-//    }
-//
-//    @GetMapping("/high-salary")
-//    public List<Employee> getEmployeeWithSalaryAboveAverage() {
-//        return employeeService.getEmployeeWithSalaryAboveAverage();
-//    }
 }
