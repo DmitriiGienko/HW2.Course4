@@ -1,15 +1,14 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
+
 
 public class EmployeeController {
 
@@ -19,28 +18,39 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping
+    @GetMapping("/showAllEmployees")
     public List<Employee> getAllEmployee() {
         return employeeService.getAllEmployees();
     }
 
-    @GetMapping("/salary/max")
-    public Employee getMaxSalaryEmployee() {
-        return employeeService.getMaxSalaryEmployee();
+    @PostMapping("/addEmployees")
+    public void addEmployee(@RequestParam(required = false) String name,
+                            @RequestParam(required = false) int salary) {
+        employeeService.addEmployee(new Employee(name, salary));
     }
 
-    @GetMapping("/salary/min")
-    public Employee getMinSalaryEmployee() {
-        return employeeService.getMinSalaryEmployee();
+    @PutMapping("/employees/{id}")
+    public void updateEmployee(@RequestParam int id,
+                               @RequestParam String newName,
+                               @RequestParam int newSalary) {
+        employeeService.updateEmployeeById(id, newName, newSalary);
+
     }
 
-    @GetMapping("/salary/sum")
-    public int getSumOfSalary() {
-        return employeeService.getSumOfSalary();
+    @DeleteMapping("/deleteEmployees/{id}")
+    public void deleteEmployee(@RequestParam int id) {
+        employeeService.deleteEmployeeById(id);
     }
 
-    @GetMapping("/high-salary")
-    public List<Employee> getEmployeeWithSalaryAboveAverage() {
-        return employeeService.getEmployeeWithSalaryAboveAverage();
+    @GetMapping("/employeesById/{id}")
+    public Employee getEmployeeById(@PathVariable int id) {
+        return employeeService.getInfoEmployeeById(id);
     }
+
+    @GetMapping("/salaryHigherThan")
+    public List<Employee> getEmployeeWithSalaryAboveAverage(@RequestParam int compareSalary) {
+        return employeeService.getEmployeeWithSalaryMoreThan(compareSalary);
+    }
+
+
 }
