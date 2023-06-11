@@ -18,10 +18,14 @@ public class Employee {
     private int id;
     private String name;
     private int salary;
+    @ManyToOne
+    @JoinColumn(name = "position_id")
+    private Position position;
 
-    public Employee(String name, int salary) {
+    public Employee(String name, int salary, Position position) {
         this.name = name;
         this.salary = salary;
+        this.position = position;
     }
 
 
