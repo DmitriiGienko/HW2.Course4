@@ -7,15 +7,18 @@ import java.util.List;
 public interface EmployeeService {
     List<Employee> getAllEmployees();
 
-    List<Employee> addEmployee(Employee employee);
+    int getCount();
 
-    Employee updateEmployeeById(int id, String name, int salary);
 
-    Employee getInfoEmployeeById(int id);
-
-    void deleteEmployeeById(int id);
-
-    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
+    void addEmployee(Employee employee);
+//
+//    Employee updateEmployeeById(int id, String name, int salary);
+//
+//    Employee getInfoEmployeeById(int id);
+//
+//    void deleteEmployeeById(int id);
+//
+//    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
 
 
 }
