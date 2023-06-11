@@ -34,27 +34,30 @@ public class EmployeeController {
         employeeService.addEmployee(new Employee(name, salary));
     }
 
-//    @PutMapping("/employees/{id}")
-//    public void updateEmployee(@RequestParam int id,
-//                               @RequestParam String newName,
-//                               @RequestParam int newSalary) {
-//        employeeService.updateEmployeeById(id, newName, newSalary);
-//
-//    }
+    @PutMapping("/employees/{id}")
+    public void updateEmployee(@RequestParam int id,
+                               @RequestParam String newName,
+                               @RequestParam int newSalary) {
+        employeeService.updateEmployeeById(id, newName, newSalary);
 
-//    @DeleteMapping("/deleteEmployees/{id}")
-//    public void deleteEmployee(@RequestParam int id) {
-//        employeeService.deleteEmployeeById(id);
-//    }
-//
-//    @GetMapping("/employeesById/{id}")
-//    public Employee getEmployeeById(@PathVariable int id) {
-//        return employeeService.getInfoEmployeeById(id);
-//    }
-//
-//    @GetMapping("/salaryHigherThan")
-//    public List<Employee> getEmployeeWithSalaryAboveAverage(@RequestParam int compareSalary) {
-//        return employeeService.getEmployeeWithSalaryMoreThan(compareSalary);
+    }
+
+    @DeleteMapping("/deleteEmployees/{id}")
+    public void deleteEmployee(@RequestParam int id) {
+        employeeService.deleteEmployeeById(id);
+    }
+
+    //
+    @GetMapping("/employeesById/{id}")
+    public Employee getEmployeeById(@PathVariable int id) {
+        return employeeService.getInfoEmployeeById(id);
+    }
+
+    //
+    @GetMapping("/salaryHigherThan")
+    public List<Employee> getEmployeeWithSalaryAboveAverage(@RequestParam int compareSalary) {
+        return employeeService.getEmployeeWithSalaryMoreThan(compareSalary);
+    }
 }
 
 

@@ -12,13 +12,13 @@ public interface EmployeeService {
 
     void addEmployee(Employee employee);
 //
-//    Employee updateEmployeeById(int id, String name, int salary);
+    void updateEmployeeById(int id, String name, int salary);
 //
-//    Employee getInfoEmployeeById(int id);
+    Employee getInfoEmployeeById(int id);
 //
-//    void deleteEmployeeById(int id);
+    void deleteEmployeeById(int id);
 //
-//    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
+    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
 
 
 }

@@ -30,60 +30,44 @@ public class EmployeeServiceImpl implements EmployeeService {
         return (int) employeeRepository.count();
     }
 
-        @Override
+    @Override
     public void addEmployee(Employee employee) {
         employeeRepository.save(employee);
     }
+
+    //
+    @Override
+    public void updateEmployeeById(int id, String name, int salary) {
+        if (employeeRepository.findById(id).isEmpty()) {
+            throw new EmployeeNotFoundException();
+        }
+        employeeRepository.updateEmployeeById(name, salary, id);
+    }
+
+    @Override
+    public Employee getInfoEmployeeById(int id) {
+        if (employeeRepository.findById(id).isEmpty()) {
+            throw new EmployeeNotFoundException();
+        }
+        return employeeRepository.findById(id).get();
+    }
 //
-//    @Override
-//    public Employee updateEmployeeById(int id, String name, int salary) {
-//        Employee emp = null;
-//        List<Employee> list = employeeRepository.getAllEmployees();
-//        for (Employee employee : list) {
-//            if (employee.getId() == id) {
-//                emp = employee;
-//                employee.setName(name);
-//                employee.setSalary(salary);
-//            } else throw new EmployeeNotFoundException();
-//        }
-//        return emp;
-//    }
-//
-//    @Override
-//    public Employee getInfoEmployeeById(int id) {
-//
-//        Employee emp = null;
-//        List<Employee> list = employeeRepository.getAllEmployees();
-//        for (Employee employee : list) {
-//            if (employee.getId() == id) {
-//                emp = employee;
-//            } else throw new EmployeeNotFoundException();
-//        }
-//        return emp;
-//    }
-//
-//    @Override
-//    public void deleteEmployeeById(int id) {
-//        List<Employee> list = employeeRepository.getAllEmployees();
-//        for (int i = 0; i < list.size(); i++) {
-//            if (list.get(i).getId() == id) {
-//                list.remove(list.get(i));
-//            } else throw new EmployeeNotFoundException();
-//        }
-//    }
-//
-//    @Override
-//    public List<Employee> getEmployeeWithSalaryMoreThan(int higher) {
-//        List<Employee> employeeList = getAllEmployees();
-//        int sum = 0;
-//        for (Employee employee : employeeList) {
-//            sum += employee.getSalary();
-//        }
-//        int average = sum / employeeList.size();
-//        return employeeList.stream()
-//                .filter(employee -> employee.getSalary() > higher)
-//                .toList();
-//    }
+    @Override
+    public void deleteEmployeeById(int id) {
+        if (employeeRepository.findById(id).isEmpty()) {
+            throw new EmployeeNotFoundException();
+        }
+        employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Employee> getEmployeeWithSalaryMoreThan(int higher) {
+        List<Employee> employeeList = new ArrayList<>();
+        for (Employee employee :  employeeRepository.findEmployeeBySalaryGreaterThan(higher)) {
+            employeeList.add(employee);
+        }
+        return employeeList;
+    }
 
 
 }
