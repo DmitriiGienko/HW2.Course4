@@ -6,23 +6,23 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    List<Employee> getAllEmployees();
+//    List<Employee> getAllEmployees();
 
     void addEmployee(Employee employee);
 
-    Employee updateEmployeeById(int id, String name, int salary);
+    void updateEmployeeById(int id, String name, int salary);
 
     Employee getInfoEmployeeById(Integer id);
 
     void deleteEmployeeById(Integer id);
 
-    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
+//    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
 
     Employee getEmployeeByName(String name);
 
-    int getCount();
+//    int getCount();
 
-    List<Employee> getEmployeeWishPaging(int page,int size);
+//    List<Employee> getEmployeeWishPaging(int page,int size);
 
 
 }

@@ -9,7 +9,6 @@ import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepository;
 import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -20,14 +19,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    @Override
-    public List<Employee> getAllEmployees() {
-        List<Employee> result = new ArrayList<>();
-        for (Employee employee : employeeRepository.findAll()) {
-            result.add(employee);
-        }
-        return result;
-    }
+//    @Override
+//    public List<Employee> getAllEmployees() {
+//        List<Employee> result = new ArrayList<>();
+//        for (Employee employee : employeeRepository.findAll()) {
+//            result.add(employee);
+//        }
+//        return result;
+//    }
 
 
     @Override
@@ -36,17 +35,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee updateEmployeeById(int id, String name, int salary) {
-        return null;
+    public void updateEmployeeById(int id, String name, int salary) {
+//        Optional<Employee> empForUpdate = employeeRepository.findById(id);
+//        if (empForUpdate.isEmpty()) {
+//            throw new EmployeeNotFoundException();
+//        }
+//        Employee emp = empForUpdate.get();
+//        empForUpdate.get().setName(name);
+//        empForUpdate.get().setSalary(salary);
+////        emp.setSalary(salary);
+//        employeeRepository.save(empForUpdate);
+//        employeeRepository.updateEmployeeByID(name, salary, id);
     }
 
     @Override
     public Employee getInfoEmployeeById(Integer id) {
-        Optional<Employee> employeeOptional = employeeRepository.findById(id);
-
-        // Если сотрудник найден, возвращаем его
-        // Иначе выбрасываем исключение с указанием некорректного id
-        return employeeOptional.orElseThrow(EmployeeNotFoundException::new);
+//        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+//        // Если сотрудник найден, возвращаем его
+//        // Иначе выбрасываем исключение с указанием некорректного id
+//        return employeeOptional.orElseThrow(EmployeeNotFoundException::new);
+        return null;
     }
 
     @Override
@@ -55,27 +63,27 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     }
 
-    @Override
-
-    public List<Employee> getEmployeeWithSalaryMoreThan(int salary) {
-        return employeeRepository.getEmployeeBySalaryGreaterThan(salary);
-    }
+//    @Override
+//
+//    public List<Employee> getEmployeeWithSalaryMoreThan(int salary) {
+//        return employeeRepository.getEmployeeBySalaryGreaterThan(salary);
+//    }
 
     @Override
     public Employee getEmployeeByName(String name) {
         return employeeRepository.findByName(name).get(0);
     }
 
-    @Override
-    public int getCount() {
-        return (int) employeeRepository.count();
-    }
+//    @Override
+//    public int getCount() {
+//        return (int) employeeRepository.count();
+//    }
 
-    @Override
-    public List<Employee> getEmployeeWishPaging(int page, int size) {
-         Pageable employeeOfConcretePage = PageRequest.of(page, unitPerPage);
-         return  ;
-    }
+//    @Override
+//    public List<Employee> getEmployeeWishPaging(int page, int size) {
+//         Pageable employeeOfConcretePage = PageRequest.of(page, unitPerPage);
+//         return  ;
+//    }
 
     //    @Override
 //    public List<Employee> getAllEmployees() {
