@@ -2,12 +2,14 @@ package ru.skypro.hw2.course4.hw2course4.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
 import ru.skypro.hw2.course4.hw2course4.exceptions.EmployeeNotFoundException;
-import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
+import ru.skypro.hw2.course4.hw2course4.model.Employee;
 import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -17,12 +19,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public List<Employee> getAllEmployees() {
+    public List<EmployeeDTO> getAllEmployees() {
         List<Employee> employeeList = new ArrayList<>();
         for (Employee employee : employeeRepository.findAll()) {
             employeeList.add(employee);
         }
-        return employeeList;
+        return employeeList.stream()
+                .map(EmployeeDTO::fromEmployee)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -31,8 +35,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void addEmployee(Employee employee) {
-        employeeRepository.save(employee);
+    public void addEmployee(EmployeeDTO employee) {
+        employeeRepository.save(employee.toEmployee(employee));
     }
 
     //
@@ -45,13 +49,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getInfoEmployeeById(int id) {
+    public EmployeeDTO getInfoEmployeeById(int id) {
         if (employeeRepository.findById(id).isEmpty()) {
             throw new EmployeeNotFoundException();
         }
-        return employeeRepository.findById(id).get();
+        return employeeRepository.findById(id)
+                .map(EmployeeDTO::fromEmployee)
+                .orElseThrow(EmployeeNotFoundException::new);
+
     }
-//
+
+
     @Override
     public void deleteEmployeeById(int id) {
         if (employeeRepository.findById(id).isEmpty()) {
@@ -61,12 +69,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getEmployeeWithSalaryMoreThan(int higher) {
-        List<Employee> employeeList = new ArrayList<>();
-        for (Employee employee :  employeeRepository.findEmployeeBySalaryGreaterThan(higher)) {
-            employeeList.add(employee);
-        }
-        return employeeList;
+    public List<EmployeeDTO> getEmployeeWithSalaryMoreThan(int higher) {
+
+        return employeeRepository.findEmployeeBySalaryGreaterThan(higher)
+                .stream().map(EmployeeDTO::fromEmployee)
+                .collect(Collectors.toList());
+
     }
 
 
