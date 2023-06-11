@@ -11,7 +11,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
     List<Employee> findByName(String name);
 
-    List<Employee> getEmployeeBySalaryGreaterThan(@Param("salary") int salary);
+//    List<Employee> getEmployeeBySalaryGreaterThan(@Param("salary") int salary);
 
     @Query(value = "UPDATE employee SET name=: name, salary =: salary WHERE id=:id",
             nativeQuery = true)

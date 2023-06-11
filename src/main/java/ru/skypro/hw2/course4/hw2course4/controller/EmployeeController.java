@@ -1,35 +1,27 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
-//import ru.skypro.hw2.course4.hw2course4.repository.PagingEmployeeRepository;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/employees")
-
+@RequiredArgsConstructor
 public class EmployeeController {
 
     private final EmployeeServiceImpl employeeService;
 
 
-//    public EmployeeController(EmployeeServiceImpl employeeService, PagingEmployeeRepository pagingEmployeeRepository) {
-//        this.employeeService = employeeService;
-//        this.pagingEmployeeRepository = pagingEmployeeRepository;
-//    }
-
-
-    public EmployeeController(EmployeeServiceImpl employeeService) {
-        this.employeeService = employeeService;
+    @GetMapping("/showAllEmployees")
+    public List<Employee> getAllEmployee() {
+        return employeeService.getAllEmployees();
     }
-
-//    @GetMapping("/showAllEmployees")
-//    public List<Employee> getAllEmployee() {
-//        return employeeService.getAllEmployees();
-//    }
 
     @PostMapping("/addEmployee")
     public void addEmployee(@RequestParam String name,

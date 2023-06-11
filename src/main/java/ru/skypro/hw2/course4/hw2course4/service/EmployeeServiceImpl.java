@@ -19,14 +19,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-//    @Override
-//    public List<Employee> getAllEmployees() {
-//        List<Employee> result = new ArrayList<>();
-//        for (Employee employee : employeeRepository.findAll()) {
-//            result.add(employee);
-//        }
-//        return result;
-//    }
+    @Override
+    public List<Employee> getAllEmployees() {
+        List<Employee> result = new ArrayList<>();
+        for (Employee employee : employeeRepository.findAll()) {
+            result.add(employee);
+        }
+        return result;
+    }
 
 
     @Override
@@ -45,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        empForUpdate.get().setSalary(salary);
 ////        emp.setSalary(salary);
 //        employeeRepository.save(empForUpdate);
-//        employeeRepository.updateEmployeeByID(name, salary, id);
+        employeeRepository.updateEmployeeByID(name, salary, id);
     }
 
     @Override
