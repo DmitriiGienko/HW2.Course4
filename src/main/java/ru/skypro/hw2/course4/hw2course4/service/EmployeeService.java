@@ -22,7 +22,7 @@ public interface EmployeeService {
 
     int getCount();
 
-    List<Employee> getEmployeeWishPaging(int page,int size);
+//    List<Employee> getEmployeeWishPaging(int page,int size);
 
 
 }

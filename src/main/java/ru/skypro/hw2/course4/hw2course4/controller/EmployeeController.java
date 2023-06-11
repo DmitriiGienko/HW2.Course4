@@ -61,11 +61,11 @@ public class EmployeeController {
         return employeeService.getEmployeeWithSalaryMoreThan(compareSalary);
     }
 
-    @GetMapping("/paging/{page}/{size}")
-    public List<Employee> getEmployeeWishPaging(@PathVariable int page,
-                                                @PathVariable int size) {
-        return employeeService.getEmployeeWishPaging(page, size);
+//    @GetMapping("/paging/{page}/{size}")
+//    public List<Employee> getEmployeeWishPaging(@PathVariable int page,
+//                                                @PathVariable int size) {
+//        return employeeService.getEmployeeWishPaging(page, size);
     }
 
 
-}
+

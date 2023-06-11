@@ -71,13 +71,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         return (int) employeeRepository.count();
     }
 
-    @Override
-    public List<Employee> getEmployeeWishPaging(int page, int size) {
-         Pageable employeeOfConcretePage = PageRequest.of(page, unitPerPage);
-         return  ;
-    }
+//    @Override
+//    public List<Employee> getEmployeeWishPaging(int page, int size) {
+//         Pageable employeeOfConcretePage = PageRequest.of(page, unitPerPage);
+//         return  ;
+}
 
-    //    @Override
+//    @Override
 //    public List<Employee> getAllEmployees() {
 //        return employeeRepository.getAllEmployees();
 //
@@ -144,4 +144,4 @@ public class EmployeeServiceImpl implements EmployeeService {
 //    }
 
 
-}
+
