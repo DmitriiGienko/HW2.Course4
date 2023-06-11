@@ -1,16 +1,23 @@
-package ru.skypro.hw2.course4.hw2course4.pojo;
+package ru.skypro.hw2.course4.hw2course4.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "employee")
 public class Employee {
-    private final int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
     private int salary;
-    private static int count = 1;
 
     public Employee(String name, int salary) {
-        this.id = count;
         this.name = name;
         this.salary = salary;
-        count++;
+    }
+
+    public Employee() {
+
     }
 
     public String getName() {
@@ -21,7 +28,7 @@ public class Employee {
         return salary;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
