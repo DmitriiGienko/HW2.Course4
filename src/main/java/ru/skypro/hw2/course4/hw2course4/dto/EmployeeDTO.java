@@ -1,25 +1,38 @@
 package ru.skypro.hw2.course4.hw2course4.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
 import ru.skypro.hw2.course4.hw2course4.model.Position;
 
-@Setter
-@Getter
+import java.util.Optional;
+
+@JsonInclude(JsonInclude.Include.NON_ABSENT)
+
+@Data
 @NoArgsConstructor
 public class EmployeeDTO {
-    private int id;
+    private Integer id;
     private String name;
-    private int salary;
-    private Position position;
+    private Integer salary;
+    private String position;
 
-    public EmployeeDTO(String name, int salary, Position position) {
+    public EmployeeDTO(Integer id, String name, Integer salary, String position) {
+        this.id = id;
         this.name = name;
         this.salary = salary;
         this.position = position;
+    }
+
+    public EmployeeDTO(String name, Integer salary, String position) {
+        this.name = name;
+        this.salary = salary;
+        this.position = position;
+    }
+
+    public EmployeeDTO(String name, Integer salary) {
+        this.name = name;
+        this.salary = salary;
     }
 
     public static EmployeeDTO fromEmployee(Employee employee) {
@@ -27,7 +40,9 @@ public class EmployeeDTO {
         employeeDTO.setId(employee.getId());
         employeeDTO.setName(employee.getName());
         employeeDTO.setSalary(employee.getSalary());
-        employeeDTO.setPosition(employee.getPosition());
+        employeeDTO.setPosition(Optional.ofNullable(employee.getPosition())
+                .map(Position::getPositionName)
+                .orElse(null));
         return employeeDTO;
     }
 
@@ -36,7 +51,6 @@ public class EmployeeDTO {
         employee.setId(this.getId());
         employee.setName(this.getName());
         employee.setSalary(this.getSalary());
-        employee.setPosition(this.position);
         return employee;
     }
 
