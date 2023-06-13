@@ -1,7 +1,8 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
+import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
+import ru.skypro.hw2.course4.hw2course4.model.Employee;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
 import java.util.List;
@@ -19,14 +20,14 @@ public class EmployeeController {
     }
 
     @GetMapping("/showAllEmployees")
-    public List<Employee> getAllEmployee() {
+    public List<EmployeeDTO> getAllEmployee() {
         return employeeService.getAllEmployees();
     }
 
     @PostMapping("/addEmployees")
     public void addEmployee(@RequestParam(required = false) String name,
                             @RequestParam(required = false) int salary) {
-        employeeService.addEmployee(new Employee(name, salary));
+        employeeService.addEmployee(new EmployeeDTO(name, salary));
     }
 
     @PutMapping("/employees/{id}")
@@ -43,12 +44,12 @@ public class EmployeeController {
     }
 
     @GetMapping("/employeesById/{id}")
-    public Employee getEmployeeById(@PathVariable int id) {
+    public EmployeeDTO getEmployeeById(@PathVariable int id) {
         return employeeService.getInfoEmployeeById(id);
     }
 
     @GetMapping("/salaryHigherThan")
-    public List<Employee> getEmployeeWithSalaryAboveAverage(@RequestParam int compareSalary) {
+    public List<EmployeeDTO> getEmployeeWithSalaryAboveAverage(@RequestParam int compareSalary) {
         return employeeService.getEmployeeWithSalaryMoreThan(compareSalary);
     }
 

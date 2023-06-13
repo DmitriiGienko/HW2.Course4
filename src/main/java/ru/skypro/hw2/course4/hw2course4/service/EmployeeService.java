@@ -1,21 +1,22 @@
 package ru.skypro.hw2.course4.hw2course4.service;
 
-import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
+import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
+import ru.skypro.hw2.course4.hw2course4.model.Employee;
 
 import java.util.List;
 
 public interface EmployeeService {
-    List<Employee> getAllEmployees();
+    List<EmployeeDTO> getAllEmployees();
 
-    List<Employee> addEmployee(Employee employee);
+    void addEmployee(EmployeeDTO employee);
 
-    Employee updateEmployeeById(int id, String name, int salary);
+    void updateEmployeeById(int id, String name, int salary);
 
-    Employee getInfoEmployeeById(int id);
+    EmployeeDTO getInfoEmployeeById(int id);
 
     void deleteEmployeeById(int id);
 
-    List<Employee> getEmployeeWithSalaryMoreThan(int salary);
+    List<EmployeeDTO> getEmployeeWithSalaryMoreThan(int salary);
 
 
 }

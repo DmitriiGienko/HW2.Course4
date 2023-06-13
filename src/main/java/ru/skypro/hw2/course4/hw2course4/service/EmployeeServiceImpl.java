@@ -1,89 +1,72 @@
 package ru.skypro.hw2.course4.hw2course4.service;
 
 import org.springframework.stereotype.Service;
-import ru.skypro.hw2.course4.hw2course4.exceptions.EmployeeExceptionHandler;
+import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
 import ru.skypro.hw2.course4.hw2course4.exceptions.EmployeeNotFoundException;
-import ru.skypro.hw2.course4.hw2course4.pojo.Employee;
-import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepositoryImpl;
+import ru.skypro.hw2.course4.hw2course4.model.Employee;
+import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepository;
 
-import java.io.IOException;
-import java.util.Comparator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeRepositoryImpl employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public EmployeeServiceImpl(EmployeeRepositoryImpl employeeRepository) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
-    @Override
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.getAllEmployees();
-
-
-    }
 
     @Override
-    public List<Employee> addEmployee(Employee employee) {
-        List<Employee> newEmp = employeeRepository.getAllEmployees();
-        newEmp.add(employee);
-        return newEmp;
-
-
-    }
-
-    @Override
-    public Employee updateEmployeeById(int id, String name, int salary) {
-        Employee emp = null;
-        List<Employee> list = employeeRepository.getAllEmployees();
-        for (Employee employee : list) {
-            if (employee.getId() == id) {
-                emp = employee;
-                employee.setName(name);
-                employee.setSalary(salary);
-            } else throw new EmployeeNotFoundException();
+    public List<EmployeeDTO> getAllEmployees() {
+        List<Employee> employeeList = new ArrayList<>();
+        for (Employee employee : employeeRepository.findAll()) {
+            employeeList.add(employee);
         }
-        return emp;
+        return employeeList.stream()
+                .map(EmployeeMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Employee getInfoEmployeeById(int id) {
+    public void addEmployee(EmployeeDTO employee) {
+        employeeRepository.save(EmployeeMapper.toEmployee(employee));
 
-        Employee emp = null;
-        List<Employee> list = employeeRepository.getAllEmployees();
-        for (Employee employee : list) {
-            if (employee.getId() == id) {
-                emp = employee;
-            } else throw new EmployeeNotFoundException();
-        }
-        return emp;
+
+    }
+
+    @Override
+    public void updateEmployeeById(int id, String name, int salary) {
+        Employee employee = employeeRepository.findById(id).orElseThrow(EmployeeNotFoundException::new);
+        employee.setName(name);
+        employee.setSalary(salary);
+        employeeRepository.save(employee);
+    }
+
+    @Override
+    public EmployeeDTO getInfoEmployeeById(int id) {
+
+        return employeeRepository.findById(id)
+                .map(EmployeeMapper::toDto)
+                .orElseThrow(EmployeeNotFoundException::new);
     }
 
     @Override
     public void deleteEmployeeById(int id) {
-        List<Employee> list = employeeRepository.getAllEmployees();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getId() == id) {
-                list.remove(list.get(i));
-            } else throw new EmployeeNotFoundException();
+        if (employeeRepository.findById(id).isEmpty()) {
+            throw new EmployeeNotFoundException();
         }
+        employeeRepository.deleteById(id);
     }
 
     @Override
-    public List<Employee> getEmployeeWithSalaryMoreThan(int higher) {
-        List<Employee> employeeList = getAllEmployees();
-        int sum = 0;
-        for (Employee employee : employeeList) {
-            sum += employee.getSalary();
-        }
-        int average = sum / employeeList.size();
-        return employeeList.stream()
-                .filter(employee -> employee.getSalary() > higher)
-                .toList();
+    public List<EmployeeDTO> getEmployeeWithSalaryMoreThan(int higher) {
+        return employeeRepository.findEmployeeBySalaryGreaterThan(higher).stream()
+                .map(EmployeeMapper::toDto)
+                .collect(Collectors.toList());
     }
 
 
