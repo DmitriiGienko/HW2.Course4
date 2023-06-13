@@ -3,6 +3,7 @@ package ru.skypro.hw2.course4.hw2course4.controller;
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
+import ru.skypro.hw2.course4.hw2course4.model.Position;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
 import java.util.List;
@@ -26,8 +27,9 @@ public class EmployeeController {
 
     @PostMapping("/addEmployees")
     public void addEmployee(@RequestParam(required = false) String name,
-                            @RequestParam(required = false) int salary) {
-        employeeService.addEmployee(new EmployeeDTO(name, salary));
+                            @RequestParam(required = false) int salary,
+                            @RequestParam String positionName)) {
+        employeeService.addEmployee(new EmployeeDTO(name, salary, new Position()));
     }
 
     @PutMapping("/employees/{id}")

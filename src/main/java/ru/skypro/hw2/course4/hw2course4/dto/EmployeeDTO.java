@@ -9,16 +9,17 @@ public class EmployeeDTO {
     private int id;
     private String name;
     private int salary;
+    private String positionName;
 
     public EmployeeDTO(String name, int salary) {
         this.name = name;
         this.salary = salary;
     }
 
-    public EmployeeDTO(int id, String name, int salary) {
-        this.id = id;
+    public EmployeeDTO(String name, int salary, String positionName) {
         this.name = name;
         this.salary = salary;
+        this.positionName = positionName;
     }
 
 
