@@ -125,12 +125,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<EmployeeDTO> getEmployeeByPosition(@Nullable String position) {
 
-        //   return Optional.ofNullable(position)
-        //           .map(employeeRepository::findEmployeeByPosition_Position)
-        //           .orElseGet(employeeRepository::findAll)
-        //           .stream()
-        //           .map(EmployeeDTO::fromEmployee)
-        //           .collect(Collectors.toList());
         List<Employee> employeeList = null;
         if (position != null) {
             employeeList = employeeRepository.findEmployeeByPosition_Position(position);
@@ -140,7 +134,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeList.stream()
                 .map(EmployeeDTO::fromEmployee)
                 .collect(Collectors.toList());
-
 
     }
 
