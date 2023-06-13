@@ -32,7 +32,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
             "WHERE e.position = p")
     List<EmployeeFullInfo> findAllEmployeeFullInfo();
 
-//    List<Employee> findEmployeeByPosition_Position(String position);
+    List<Employee> findEmployeeByPosition_Position(String position);
 }
 
 

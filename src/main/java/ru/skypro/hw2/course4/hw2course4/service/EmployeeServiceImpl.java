@@ -2,15 +2,18 @@ package ru.skypro.hw2.course4.hw2course4.service;
 
 import io.micrometer.common.lang.Nullable;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.exceptions.EmployeeNotFoundException;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
 import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepository;
+import ru.skypro.hw2.course4.hw2course4.repository.PagingEmployeeRepository;
+import ru.skypro.hw2.course4.hw2course4.repository.PositionRepository;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,10 +24,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private  EmployeeRepository employeeRepository;
+    private EmployeeRepository employeeRepository;
+    private PagingEmployeeRepository pagingEmployeeRepository;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, PagingEmployeeRepository pagingEmployeeRepository) {
         this.employeeRepository = employeeRepository;
+        this.pagingEmployeeRepository = pagingEmployeeRepository;
+
     }
 
     @Override
@@ -104,20 +111,37 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public List<EmployeeDTO> getEmployeeByPage(int page) {
-        return employeeRepository.findAll(PageRequest.of(page,10))
-                .stream()
-                .map(EmployeeDTO::fromEmployee)
+
+        Pageable employeeOfConcretePage = PageRequest.of(page, 10);
+        Page<Employee> employeePage = pagingEmployeeRepository.findAll(employeeOfConcretePage);
+
+        return employeePage.stream()
+                .toList()
+                .stream().map(EmployeeDTO::fromEmployee)
                 .collect(Collectors.toList());
+
     }
 
-//    @Override
-//    public List<EmployeeDTO> getEmployeeByPosition(@Nullable String position) {
-//
-//        return Optional.ofNullable(position)
-//                .map(employeeRepository::findEmployeeByPosition_Position)
-//                .orElseGet(employeeRepository::findAll)
-//                .stream()
-//                .map(EmployeeDTO::fromEmployee)
-//                .collect(Collectors.toList());
-//    }
+    @Override
+    public List<EmployeeDTO> getEmployeeByPosition(@Nullable String position) {
+
+        //   return Optional.ofNullable(position)
+        //           .map(employeeRepository::findEmployeeByPosition_Position)
+        //           .orElseGet(employeeRepository::findAll)
+        //           .stream()
+        //           .map(EmployeeDTO::fromEmployee)
+        //           .collect(Collectors.toList());
+        List<Employee> employeeList = null;
+        if (position != null) {
+            employeeList = employeeRepository.findEmployeeByPosition_Position(position);
+        } else {
+            employeeList = (List<Employee>) employeeRepository.findAll();
+        }
+        return employeeList.stream()
+                .map(EmployeeDTO::fromEmployee)
+                .collect(Collectors.toList());
+
+
+    }
+
 }

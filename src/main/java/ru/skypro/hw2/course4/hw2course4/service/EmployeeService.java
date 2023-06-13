@@ -33,7 +33,7 @@ public interface EmployeeService {
 
     EmployeeDTO getEmployeeFullInfo(int id);
 
-//   List<EmployeeDTO> getEmployeeByPosition(String position);
+   List<EmployeeDTO> getEmployeeByPosition(String position);
 
     List<EmployeeDTO> getEmployeeByPage(int page);
 

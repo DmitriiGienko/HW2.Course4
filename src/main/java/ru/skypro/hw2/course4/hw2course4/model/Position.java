@@ -1,15 +1,12 @@
 package ru.skypro.hw2.course4.hw2course4.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "position")
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

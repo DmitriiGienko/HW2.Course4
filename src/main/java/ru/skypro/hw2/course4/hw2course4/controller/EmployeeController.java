@@ -75,15 +75,14 @@ public class EmployeeController {
         return employeeService.getEmployeeFullInfo(id);
     }
 
-//    @GetMapping("/EmployeesPosition")
-//    public List<EmployeeDTO> getEmployeesForPosition(@RequestParam(required = false) String position) {
-//        return employeeService.getEmployeeByPosition(
-//                Optional.ofNullable(position)
-//                        .filter(p -> !p.isEmpty())
-//                        .orElse(null));
-//
-//
-//    }
+    @GetMapping("/EmployeesPosition")
+    public List<EmployeeDTO> getEmployeesForPosition(@RequestParam(required = false) String position) {
+        return employeeService.getEmployeeByPosition(
+                Optional.ofNullable(position)
+                        .filter(p -> !p.isEmpty())
+                        .orElse(null));
+
+    }
 
     @GetMapping("/EmployeesPages")
     public List<EmployeeDTO> getEmployeesForPosition(@RequestParam(required = false, defaultValue = "0") int page) {
