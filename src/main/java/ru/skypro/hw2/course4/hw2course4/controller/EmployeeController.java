@@ -84,11 +84,11 @@ public class EmployeeController {
 //
 //
 //    }
-
-    @GetMapping("/EmployeesPages")
-    public List<EmployeeDTO> getEmployeesForPosition(@RequestParam(required = false, defaultValue = "0") int page) {
-        return employeeService.getEmployeeByPage(page);
-    }
+//
+//    @GetMapping("/EmployeesPages")
+//    public List<EmployeeDTO> getEmployeesForPosition(@RequestParam(required = false, defaultValue = "0") int page) {
+//        return employeeService.getEmployeeByPage(page);
+//    }
 }
 
 

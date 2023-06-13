@@ -103,12 +103,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .orElseThrow(EmployeeNotFoundException::new);
     }
 
-    public List<EmployeeDTO> getEmployeeByPage(int page) {
-        return employeeRepository.findAll(PageRequest.of(page,10))
-                .stream()
-                .map(EmployeeDTO::fromEmployee)
-                .collect(Collectors.toList());
-    }
+//    public List<EmployeeDTO> getEmployeeByPage(int page) {
+//        return employeeRepository.findAll(PageRequest.of(page,10))
+//                .stream()
+//                .map(EmployeeDTO::fromEmployee)
+//                .collect(Collectors.toList());
+//    }
 
 //    @Override
 //    public List<EmployeeDTO> getEmployeeByPosition(@Nullable String position) {

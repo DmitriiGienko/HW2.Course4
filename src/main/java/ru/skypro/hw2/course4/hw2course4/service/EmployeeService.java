@@ -35,7 +35,7 @@ public interface EmployeeService {
 
 //   List<EmployeeDTO> getEmployeeByPosition(String position);
 
-    List<EmployeeDTO> getEmployeeByPage(int page);
+//    List<EmployeeDTO> getEmployeeByPage(int page);
 
 
 
