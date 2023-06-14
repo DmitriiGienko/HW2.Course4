@@ -11,6 +11,8 @@ public class EmployeeMapper {
         employeeDTO.setId(employee.getId());
         employeeDTO.setName(employee.getName());
         employeeDTO.setSalary(employee.getSalary());
+        employeeDTO.setPosition(employee.getPosition());
+
         return employeeDTO;
     }
 
@@ -19,6 +21,7 @@ public class EmployeeMapper {
         employee.setId(employeeDTO.getId());
         employee.setName(employeeDTO.getName());
         employee.setSalary(employeeDTO.getSalary());
+        employee.setPosition(employeeDTO.getPosition());
         return employee;
     }
 

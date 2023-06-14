@@ -1,15 +1,12 @@
 package ru.skypro.hw2.course4.hw2course4.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Data
+@Table(name = "position")
+@Getter
+@Setter
 @NoArgsConstructor
 public class Position {
     @Id
@@ -19,5 +16,10 @@ public class Position {
 
     public Position(String positionName) {
         this.positionName = positionName;
+    }
+
+    @Override
+    public String toString() {
+        return "positionName= " + positionName;
     }
 }

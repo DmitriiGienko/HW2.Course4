@@ -10,6 +10,7 @@ import java.lang.invoke.TypeDescriptor;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "employee")
 
 public class Employee {
     @Id
@@ -27,4 +28,9 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Employee(String name, int salary, Position position) {
+        this.name = name;
+        this.salary = salary;
+        this.position = position;
+    }
 }

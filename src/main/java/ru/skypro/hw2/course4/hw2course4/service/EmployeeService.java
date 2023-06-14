@@ -1,8 +1,10 @@
 package ru.skypro.hw2.course4.hw2course4.service;
 
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
+import ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface EmployeeService {
@@ -18,5 +20,13 @@ public interface EmployeeService {
 
     List<EmployeeDTO> getEmployeeWithSalaryMoreThan(int salary);
 
+    List<EmployeeDTO> getEmployeeWithMaxSalary();
 
+    List<EmployeeFullInfo> getEmployeeFullInfo();
+
+    EmployeeDTO getFullInfoById(int id);
+
+    List<EmployeeDTO> getEmployeeByPage(int page);
+
+    List<EmployeeDTO> getEmployeesOnPosition(String positionName);
 }

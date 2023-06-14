@@ -15,10 +15,10 @@ public class EmployeeExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<?> handleIOException(IOException ioException) {
-        String massage = "Неверные данные!";
-        return new ResponseEntity<>(massage, HttpStatus.BAD_REQUEST);
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body("Введены неверные данные!");
     }
-
 
     @ExceptionHandler(EmployeeNotFoundException.class)
     public ResponseEntity<?> handleNotFound(EmployeeNotFoundException e) {
@@ -26,7 +26,6 @@ public class EmployeeExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .body("Id не найден!");
     }
-
 
     @ExceptionHandler
     public ResponseEntity<?> handleException(Exception exception) {
