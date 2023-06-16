@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.lang.invoke.TypeDescriptor;
 
@@ -11,6 +12,8 @@ import java.lang.invoke.TypeDescriptor;
 @NoArgsConstructor
 @Entity
 @Table(name = "employee")
+@Accessors(chain = true)
+
 
 public class Employee {
     @Id

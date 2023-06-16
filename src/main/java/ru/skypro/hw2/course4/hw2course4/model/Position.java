@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
