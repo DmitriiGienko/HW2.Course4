@@ -5,7 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
-import ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo;
+import ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.exceptions.EmployeeNotFoundException;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
 import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepository;

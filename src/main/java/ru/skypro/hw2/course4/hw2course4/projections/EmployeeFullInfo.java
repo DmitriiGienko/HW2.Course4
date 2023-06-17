@@ -1,4 +1,4 @@
-package ru.skypro.hw2.course4.hw2course4.dto;
+package ru.skypro.hw2.course4.hw2course4.projections;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

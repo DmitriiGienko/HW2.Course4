@@ -2,7 +2,7 @@ package ru.skypro.hw2.course4.hw2course4.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
-import ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo;
+import ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.model.Position;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
