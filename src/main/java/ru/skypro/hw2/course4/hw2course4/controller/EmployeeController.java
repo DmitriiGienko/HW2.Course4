@@ -1,9 +1,10 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
-import ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo;
-import ru.skypro.hw2.course4.hw2course4.model.Employee;
+import ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.model.Position;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
@@ -67,7 +68,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{id}/fullInfo")
-    public EmployeeDTO getInfoById(@RequestParam int id) {
+    public EmployeeDTO getEmployeeInfoById(@RequestParam int id) {
         return employeeService.getFullInfoById(id);
     }
 
@@ -81,6 +82,12 @@ public class EmployeeController {
     public List<EmployeeDTO> getEmployeesOnPosition
             (@RequestParam(value = "position", required = false) String positionName) {
         return employeeService.getEmployeesOnPosition(positionName);
+    }
+
+    @PostMapping(value = "/upload" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public void uploadFile(@RequestParam("file") MultipartFile file) {
+
+        employeeService.uploadEmployee(file);
     }
 
 }

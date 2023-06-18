@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
-import ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo;
+import ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.model.Employee;
 
 import java.util.List;
@@ -21,14 +21,14 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
             " where e.salary = (SELECT MAX(e.salary) from Employee e)")
     List<EmployeeDTO> getEmployeesWithMaxSalary();
 
-    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo" +
+    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo" +
             "(e.name, e.salary, p.positionName)" +
             " FROM Employee e" +
             " JOIN FETCH Position p" +
             " WHERE e.position=p")
     List<EmployeeFullInfo> getFullInfo();
 
-    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo" +
+    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo" +
             "(e.name , e.salary , p.positionName) " +
             "FROM Employee e " +
             "JOIN FETCH Position p " +
