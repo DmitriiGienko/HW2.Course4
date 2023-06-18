@@ -17,7 +17,7 @@ public class Report {
     private int id;
 
     @Lob
-//    @Column(name = "info", columnDefinition ="CLOB")
+    @Column(name = "info", columnDefinition = "text")
     private byte[] bytes;
 
     public Report(byte[] bytes) {
