@@ -17,7 +17,7 @@ public class EmployeeExceptionHandler {
     public ResponseEntity<?> handleIOException(IOException ioException) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body("Введены неверные данные!");
+                .body("Неверные данные!");
     }
 
     @ExceptionHandler(EmployeeNotFoundException.class)
