@@ -20,6 +20,7 @@ public class PositionServiceImpl implements PositionService {
         positionRepository.save(position);
     }
 
+    @Override
     public List<Position> getAllPosition() {
         List<Position> positionList = new ArrayList<>();
         for (Position position : positionRepository.findAll()) {

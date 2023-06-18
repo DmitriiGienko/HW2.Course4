@@ -1,20 +1,16 @@
 package ru.skypro.hw2.course4.hw2course4.service;
 
-import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
+import ru.skypro.hw2.course4.hw2course4.exceptions.IdNotFoundExceptions;
 import ru.skypro.hw2.course4.hw2course4.model.Report;
 import ru.skypro.hw2.course4.hw2course4.repository.ReportRepository;
-
-import java.nio.charset.StandardCharsets;
 
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -25,15 +21,17 @@ public class ReportServiceImpl implements ReportService {
         this.reportRepository = reportRepository;
     }
 
-    @SneakyThrows
-    public int addReport() {
+    @Override
+    public int addReport() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         byte[] bytesForProjections = objectMapper.writeValueAsBytes(reportRepository.getReport());
         return reportRepository.save(new Report(bytesForProjections)).getId();
     }
 
-    @SneakyThrows
+    @Override
     public ResponseEntity<Resource> getReportById(int id) {
+        if (!reportRepository.existsById(id))
+            throw new IdNotFoundExceptions();
         String fileName = "employeeReport.json";
 
         Resource resource = new ByteArrayResource(reportRepository.findById(id).get().getBytes());

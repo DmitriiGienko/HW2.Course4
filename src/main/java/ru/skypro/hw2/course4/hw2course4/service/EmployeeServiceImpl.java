@@ -15,6 +15,7 @@ import ru.skypro.hw2.course4.hw2course4.model.Employee;
 import ru.skypro.hw2.course4.hw2course4.repository.EmployeeRepository;
 import ru.skypro.hw2.course4.hw2course4.repository.PagingEmployeeRepository;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -121,8 +122,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .collect(Collectors.toList());
     }
 
-    @SneakyThrows
-    public void uploadEmployee(MultipartFile file) {
+    public void uploadEmployee(MultipartFile file) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         if (file.isEmpty()) {
             System.out.println("Файл не найден");
