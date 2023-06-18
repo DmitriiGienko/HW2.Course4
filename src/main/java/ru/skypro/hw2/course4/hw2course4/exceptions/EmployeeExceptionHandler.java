@@ -12,7 +12,6 @@ import java.sql.SQLException;
 @RestControllerAdvice
 public class EmployeeExceptionHandler {
 
-
     @ExceptionHandler
     public ResponseEntity<?> handleIOException(IOException ioException) {
         return ResponseEntity
