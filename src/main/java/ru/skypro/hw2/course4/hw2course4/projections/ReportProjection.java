@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class ReportProjection {
 //    Название отдела.
 //    Количество сотрудников.
@@ -12,8 +11,16 @@ public class ReportProjection {
 //    Минимальная зарплата.
 //    Средняя зарплата.
     private String namePosition;
-    private int countOfEmployee;
+    private double countOfEmployee;
     private int maxSalary;
     private int minSalary;
     private double averageSalary;
+
+    public ReportProjection(String namePosition, double countOfEmployee, int maxSalary, int minSalary, double averageSalary) {
+        this.namePosition = namePosition;
+        this.countOfEmployee = countOfEmployee;
+        this.maxSalary = maxSalary;
+        this.minSalary = minSalary;
+        this.averageSalary = averageSalary;
+    }
 }

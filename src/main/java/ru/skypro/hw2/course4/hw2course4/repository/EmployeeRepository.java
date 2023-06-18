@@ -21,14 +21,14 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
             " where e.salary = (SELECT MAX(e.salary) from Employee e)")
     List<EmployeeDTO> getEmployeesWithMaxSalary();
 
-    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo" +
+    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo" +
             "(e.name, e.salary, p.positionName)" +
             " FROM Employee e" +
             " JOIN FETCH Position p" +
             " WHERE e.position=p")
     List<EmployeeFullInfo> getFullInfo();
 
-    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.dto.EmployeeFullInfo" +
+    @Query("SELECT new ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo" +
             "(e.name , e.salary , p.positionName) " +
             "FROM Employee e " +
             "JOIN FETCH Position p " +

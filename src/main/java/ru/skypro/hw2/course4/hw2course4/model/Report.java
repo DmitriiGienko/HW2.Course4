@@ -10,11 +10,17 @@ import java.sql.Clob;
 @Table(name = "report")
 @Data
 @NoArgsConstructor
+
 public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(columnDefinition = "CLOB")
+
+    @Lob
+//    @Column(name = "info", columnDefinition ="CLOB")
     private byte[] bytes;
 
+    public Report(byte[] bytes) {
+        this.bytes = bytes;
+    }
 }
