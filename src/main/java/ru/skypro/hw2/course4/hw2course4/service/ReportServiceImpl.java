@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
+import ru.skypro.hw2.course4.hw2course4.exceptions.IdNotFoundExceptions;
 import ru.skypro.hw2.course4.hw2course4.model.Report;
 import ru.skypro.hw2.course4.hw2course4.repository.ReportRepository;
 
@@ -46,6 +47,8 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public ResponseEntity<Resource> getReportById(int id) {
+        if(!reportRepository.existsById(id))
+            throw  new IdNotFoundExceptions();
 
         Path path = Paths.get(reportRepository.findById(id).get().getFilePath());
         try {
