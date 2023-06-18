@@ -8,6 +8,7 @@ import ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo;
 import ru.skypro.hw2.course4.hw2course4.model.Position;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -87,7 +88,11 @@ public class EmployeeController {
     @PostMapping(value = "/upload" , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void uploadFile(@RequestParam("file") MultipartFile file) {
 
-        employeeService.uploadEmployee(file);
+        try {
+            employeeService.uploadEmployee(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

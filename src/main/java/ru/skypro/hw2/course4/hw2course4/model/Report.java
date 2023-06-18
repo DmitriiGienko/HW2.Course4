@@ -4,10 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.nio.file.Path;
 import java.sql.Clob;
 
 @Entity
-@Table(name = "report")
+@Table(name = "reportWithPath")
 @Data
 @NoArgsConstructor
 
@@ -18,9 +19,9 @@ public class Report {
 
     @Lob
     @Column(name = "info", columnDefinition = "text")
-    private byte[] bytes;
+    private String filePath;
 
-    public Report(byte[] bytes) {
-        this.bytes = bytes;
+    public Report(String filePath) {
+        this.filePath = filePath;
     }
 }

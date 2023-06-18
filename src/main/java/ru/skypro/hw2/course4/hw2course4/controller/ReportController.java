@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.skypro.hw2.course4.hw2course4.service.ReportServiceImpl;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/report")
 public class ReportController {
@@ -18,7 +20,11 @@ public class ReportController {
     @PostMapping(value = "/report")
     public int createReport() {
 
-        return reportService.addReport();
+        try {
+            return reportService.addReport();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping(value = "/report/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)

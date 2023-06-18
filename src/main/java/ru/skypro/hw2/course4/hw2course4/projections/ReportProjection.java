@@ -5,11 +5,7 @@ import lombok.Data;
 
 @Data
 public class ReportProjection {
-//    Название отдела.
-//    Количество сотрудников.
-//    Максимальная зарплата.
-//    Минимальная зарплата.
-//    Средняя зарплата.
+
     private String namePosition;
     private double countOfEmployee;
     private int maxSalary;
