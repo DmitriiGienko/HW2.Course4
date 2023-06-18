@@ -1,0 +1,1 @@
+[{"namePosition":"development","countOfEmployee":3.0,"maxSalary":950,"minSalary":1300,"averageSalary":1083.3333333333333},{"namePosition":"exploitation","countOfEmployee":3.0,"maxSalary":800,"minSalary":900,"averageSalary":833.3333333333334},{"namePosition":"management","countOfEmployee":3.0,"maxSalary":900,"minSalary":1500,"averageSalary":1200.0}]
