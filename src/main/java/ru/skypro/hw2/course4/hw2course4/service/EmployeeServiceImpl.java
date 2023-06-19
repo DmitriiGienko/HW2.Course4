@@ -125,9 +125,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void uploadEmployee(MultipartFile file) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        if (file.isEmpty()) {
-            System.out.println("Файл не найден");
-        }
+
         List<EmployeeDTO> employeeDTOS =
                 objectMapper.readValue(file.getInputStream(),
                         new TypeReference<List<EmployeeDTO>>() {
