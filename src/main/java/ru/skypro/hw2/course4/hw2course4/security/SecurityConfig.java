@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .disable()
                 .authorizeHttpRequests(this::customizeRequest);
 
+
         return http.build();
 
     }
