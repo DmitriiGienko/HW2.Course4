@@ -31,4 +31,11 @@ public class EmployeeExceptionHandler {
     public ResponseEntity<?> handleException(Exception exception) {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(IdNotFoundExceptions.class)
+    public ResponseEntity<?> handleNotFound(IdNotFoundExceptions e) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body("Id не найден!");
+    }
 }
