@@ -2,7 +2,6 @@ package ru.skypro.hw2.course4.hw2course4.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.SneakyThrows;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -125,12 +124,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void uploadEmployee(MultipartFile file) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        if (file.isEmpty()) {
-            System.out.println("Файл не найден");
-        }
         List<EmployeeDTO> employeeDTOS =
                 objectMapper.readValue(file.getInputStream(),
-                        new TypeReference<List<EmployeeDTO>>() {
+                        new TypeReference<>() {
                         });
         employeeRepository.saveAll(employeeDTOS.stream().map(EmployeeMapper::toEmployee).toList());
     }
