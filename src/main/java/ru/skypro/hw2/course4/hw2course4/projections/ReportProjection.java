@@ -1,6 +1,5 @@
 package ru.skypro.hw2.course4.hw2course4.projections;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
