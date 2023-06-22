@@ -1,7 +1,8 @@
 package ru.skypro.hw2.course4.hw2course4.model;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "position")

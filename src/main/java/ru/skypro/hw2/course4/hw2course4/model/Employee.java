@@ -1,10 +1,10 @@
 package ru.skypro.hw2.course4.hw2course4.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.lang.invoke.TypeDescriptor;
 
 @Data
