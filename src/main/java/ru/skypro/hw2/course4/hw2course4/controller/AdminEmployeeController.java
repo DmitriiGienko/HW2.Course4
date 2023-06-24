@@ -7,7 +7,6 @@ import ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO;
 import ru.skypro.hw2.course4.hw2course4.exceptions.IdNotFoundExceptions;
 import ru.skypro.hw2.course4.hw2course4.model.Position;
 import ru.skypro.hw2.course4.hw2course4.projections.EmployeeFullInfo;
-import ru.skypro.hw2.course4.hw2course4.service.EmployeeService;
 import ru.skypro.hw2.course4.hw2course4.service.EmployeeServiceImpl;
 
 import java.io.IOException;
