@@ -19,6 +19,7 @@ public class AuthUser {
     @Column(nullable = false, unique = true)
     private String userName;
 
+    @Column(nullable = false)
     private String password;
 
     private boolean isEnabled;

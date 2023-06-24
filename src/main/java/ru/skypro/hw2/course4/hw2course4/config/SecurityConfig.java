@@ -58,8 +58,7 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-//        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-    }
+      }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -73,7 +72,8 @@ public class SecurityConfig {
         return http.build();
     }
 
-    private void customizeRequest(AuthorizeHttpRequestsConfigurer<HttpSecurity>.AuthorizationManagerRequestMatcherRegistry registry) {
+    private void customizeRequest(AuthorizeHttpRequestsConfigurer<HttpSecurity>
+                                          .AuthorizationManagerRequestMatcherRegistry registry) {
         try {
             registry.requestMatchers(new AntPathRequestMatcher("/admin/**"))
                     .hasAnyRole("ADMIN")
