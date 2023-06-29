@@ -1,0 +1,27 @@
+
+13:28:05.129 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника с максимальной зарплатой
+13:28:05.129 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника с максимальной зарплатой
+13:28:18.799 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3
+13:28:18.799 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3
+13:28:23.516 [http-nio-8080-exec-2] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 34545
+13:28:23.516 [http-nio-8080-exec-2] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 34545
+13:28:23.519 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 34545
+13:28:23.519 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 34545
+13:43:00.532 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 232323
+13:43:00.551 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 232323
+13:43:00.552 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
+13:46:02.815 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 343434
+13:46:02.834 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 343434
+13:46:02.835 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
+13:46:03.910 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 343434
+13:46:03.912 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 343434
+13:46:03.912 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
+13:50:33.302 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3434
+13:50:33.319 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 3434
+13:50:33.320 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
+13:50:34.704 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3434
+13:50:34.706 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 3434
+13:50:34.707 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
+14:00:56.177 [http-nio-8080-exec-2] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 11111
+14:00:56.193 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 11111
+14:00:56.195 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Id не найден!)

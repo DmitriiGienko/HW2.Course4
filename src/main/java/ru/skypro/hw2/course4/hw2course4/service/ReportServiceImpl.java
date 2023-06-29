@@ -40,21 +40,23 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public int addReport() throws IOException {
-
+        logger.info("Вызван метод создания доклада");
         ObjectMapper objectMapper = new ObjectMapper();
         byte[] bytesForProjections = objectMapper.writeValueAsBytes(reportRepository.getReport());
-        String fileName = "file.txt";
+        String fileName = "fileReport.txt";
         Path path = Paths.get(fileName);
         Files.write(path, bytesForProjections);
+        logger.debug("Доклад создан");
         return reportRepository.save(new Report(path.toString())).getId();
 
     }
 
     @Override
     public ResponseEntity<Resource> getReportById(int id) {
-        if(!reportRepository.existsById(id))
-            throw  new IdNotFoundExceptions();
+        if (!reportRepository.existsById(id))
+            throw new IdNotFoundExceptions();
 
+        logger.info("Вызван метод получения доклада по id {}", id);
         Path path = Paths.get(reportRepository.findById(id).get().getFilePath());
         try {
             byte[] bytes = Files.readAllBytes(path);
