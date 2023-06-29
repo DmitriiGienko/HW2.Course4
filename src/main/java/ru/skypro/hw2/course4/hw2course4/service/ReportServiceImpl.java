@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -30,12 +32,15 @@ public class ReportServiceImpl implements ReportService {
 
     ReportRepository reportRepository;
 
+    private static final Logger logger = LoggerFactory.getLogger(PositionServiceImpl.class);
+
     public ReportServiceImpl(ReportRepository reportRepository) {
         this.reportRepository = reportRepository;
     }
 
     @Override
     public int addReport() throws IOException {
+
         ObjectMapper objectMapper = new ObjectMapper();
         byte[] bytesForProjections = objectMapper.writeValueAsBytes(reportRepository.getReport());
         String fileName = "file.txt";

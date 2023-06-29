@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +21,8 @@ public class Position {
 
     @Override
     public String toString() {
-        return "positionName= " + positionName;
+        return positionName;
     }
+
+
 }

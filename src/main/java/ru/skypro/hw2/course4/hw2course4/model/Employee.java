@@ -1,16 +1,16 @@
 package ru.skypro.hw2.course4.hw2course4.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.lang.invoke.TypeDescriptor;
 
-@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "employee")
+@Getter
+@Setter
+
 
 public class Employee {
     @Id
@@ -32,5 +32,13 @@ public class Employee {
         this.name = name;
         this.salary = salary;
         this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return "Сотрудник " +
+                "имя " + name +
+                ", зарплата " + salary +
+                ", отдел " + position;
     }
 }
