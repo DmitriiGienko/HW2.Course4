@@ -17,5 +17,5 @@ public class InfoController {
     public String getAppInfo() {
         return appInfo;
     }
-}java -jar app.jar —spring.profiles.active=test
+}
 
