@@ -17,7 +17,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
     @Query("SELECT new ru.skypro.hw2.course4.hw2course4.dto.EmployeeDTO" +
             "(e.name, e.salary, e.position)" +
             " FROM Employee e left join Position p" +
-            " on p.id = e.position.id" +
+            " on p.position_id = e.position.position_id" +
             " where e.salary = (SELECT MAX(e.salary) from Employee e)")
     List<EmployeeDTO> getEmployeesWithMaxSalary();
 
