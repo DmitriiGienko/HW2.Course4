@@ -1,4 +1,5 @@
 databaseChangeLog:
+  -
   - include:
       file: liquibase/changesets/create_position.yml
   - include:
