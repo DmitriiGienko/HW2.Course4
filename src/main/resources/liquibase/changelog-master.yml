@@ -1,6 +1,6 @@
 databaseChangeLog:
   - include:
-      file:  liquibase/changesets/create_position.yml
+      file: liquibase/changesets/create_position.yml
 
   - include:
       file: liquibase/changesets/create_employee.yml
@@ -10,3 +10,9 @@ databaseChangeLog:
 
   - include:
       file: liquibase/changesets/create_auth_user.yml
+
+  - include:
+      file: liquibase/changesets/create_foreign_key_for_employee.yml
+
+  - include:
+      file: liquibase/changesets/create_foreign_key_for_roles.yml

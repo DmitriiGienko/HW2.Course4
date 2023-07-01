@@ -14,12 +14,12 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: username
+                  name: password
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: password
+                  name: username
                   type: varchar(255)
                   constraints:
                     nullable: false
