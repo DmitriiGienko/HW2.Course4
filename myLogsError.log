@@ -137,3 +137,22 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 , salary=900, positionName=management), EmployeeFullInfo(name=Valeron, salary=1300, positionName=development), EmployeeFullInfo(name=Elizabeth
 , salary=950, positionName=development), EmployeeFullInfo(name=Nicole
 , salary=900, positionName=exploitation), EmployeeFullInfo(name=Medina, salary=1200, positionName=management)]
+09:36:53.778 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+09:38:30.624 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения полной информации о сотрудниках
+09:38:30.640 [http-nio-8080-exec-10] DEBUG r.s.h.c.h.s.EmployeeServiceImpl - Сотрудники получены [EmployeeFullInfo(name=Dima, salary=1500, positionName=management), EmployeeFullInfo(name=Nata, salary=1000, positionName=development), EmployeeFullInfo(name=Kate, salary=800, positionName=exploitation), EmployeeFullInfo(name=Alena, salary=800, positionName=exploitation), EmployeeFullInfo(name=Alex
+, salary=900, positionName=management), EmployeeFullInfo(name=Valeron, salary=1300, positionName=development), EmployeeFullInfo(name=Elizabeth
+, salary=950, positionName=development), EmployeeFullInfo(name=Nicole
+, salary=900, positionName=exploitation), EmployeeFullInfo(name=Medina, salary=1200, positionName=management)]

@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: liquibase/changesets/create_room.yml
+  - include:
+      file: liquibase/changesets/add_window_count.yml
+  - include:
+      file: liquibase/changesets/add_square.yml
