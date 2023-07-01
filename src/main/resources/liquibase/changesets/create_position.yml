@@ -1,0 +1,20 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  1
+       author:  DU
+       changes:
+         -  createTable:
+              tableName:  position
+              columns:
+                -  column:
+                     name:  position_id
+                     type:  int
+                     autoIncrement:  true
+                     constraints:
+                       primaryKey:  true
+                       nullable:  true
+                -  column:
+                     name:  position_name
+                     type:  varchar(255)
+                     constraints:
+                       nullable:  false
