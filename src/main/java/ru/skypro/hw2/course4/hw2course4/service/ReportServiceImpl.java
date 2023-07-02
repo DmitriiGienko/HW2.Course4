@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -30,26 +32,31 @@ public class ReportServiceImpl implements ReportService {
 
     ReportRepository reportRepository;
 
+    private static final Logger logger = LoggerFactory.getLogger(PositionServiceImpl.class);
+
     public ReportServiceImpl(ReportRepository reportRepository) {
         this.reportRepository = reportRepository;
     }
 
     @Override
     public int addReport() throws IOException {
+        logger.info("Вызван метод создания доклада");
         ObjectMapper objectMapper = new ObjectMapper();
         byte[] bytesForProjections = objectMapper.writeValueAsBytes(reportRepository.getReport());
-        String fileName = "file.txt";
+        String fileName = "fileReport.txt";
         Path path = Paths.get(fileName);
         Files.write(path, bytesForProjections);
+        logger.debug("Доклад создан");
         return reportRepository.save(new Report(path.toString())).getId();
 
     }
 
     @Override
     public ResponseEntity<Resource> getReportById(int id) {
-        if(!reportRepository.existsById(id))
-            throw  new IdNotFoundExceptions();
+        if (!reportRepository.existsById(id))
+            throw new IdNotFoundExceptions();
 
+        logger.info("Вызван метод получения доклада по id {}", id);
         Path path = Paths.get(reportRepository.findById(id).get().getFilePath());
         try {
             byte[] bytes = Files.readAllBytes(path);

@@ -1,5 +1,7 @@
 package ru.skypro.hw2.course4.hw2course4.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +20,8 @@ import java.util.List;
 public class AdminEmployeeController {
 
     private final EmployeeServiceImpl employeeService;
+    private static final Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
+
 
     public AdminEmployeeController(EmployeeServiceImpl employeeService) {
         this.employeeService = employeeService;
@@ -91,6 +95,7 @@ public class AdminEmployeeController {
 
         try {
             employeeService.uploadEmployee(file);
+            logger.info("Вызван метод выгрузки сотрудников из файла {}", file.getName());
         } catch (IOException e) {
             throw new IdNotFoundExceptions();
         }
