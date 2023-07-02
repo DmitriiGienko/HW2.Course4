@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: DU
+      changes:
+        - createTable:
+            tableName: employee
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salary
+                  type: int
+                  constraints:
+                    nullable: false

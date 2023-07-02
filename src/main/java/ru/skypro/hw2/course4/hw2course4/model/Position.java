@@ -12,7 +12,7 @@ import lombok.*;
 public class Position {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int position_id;
     private String positionName;
 
     public Position(String positionName) {
