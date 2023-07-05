@@ -1,139 +1,31 @@
-
-13:28:05.129 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника с максимальной зарплатой
-13:28:05.129 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника с максимальной зарплатой
-13:28:18.799 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3
-13:28:18.799 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3
-13:28:23.516 [http-nio-8080-exec-2] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 34545
-13:28:23.516 [http-nio-8080-exec-2] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 34545
-13:28:23.519 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 34545
-13:28:23.519 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 34545
-13:43:00.532 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 232323
-13:43:00.551 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 232323
-13:43:00.552 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
-13:46:02.815 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 343434
-13:46:02.834 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 343434
-13:46:02.835 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
-13:46:03.910 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 343434
-13:46:03.912 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 343434
-13:46:03.912 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
-13:50:33.302 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3434
-13:50:33.319 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 3434
-13:50:33.320 [http-nio-8080-exec-10] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
-13:50:34.704 [http-nio-8080-exec-1] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 3434
-13:50:34.706 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 3434
-13:50:34.707 [http-nio-8080-exec-1] ERROR r.s.h.c.h.s.EmployeeServiceImpl - null
-14:00:56.177 [http-nio-8080-exec-2] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения сотрудника по id = 11111
-14:00:56.193 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 11111
-14:00:56.195 [http-nio-8080-exec-2] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Id не найден!)
-21:04:25.251 [http-nio-8080-exec-9] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения полной информации о сотруднике по id = 34
-21:04:25.269 [http-nio-8080-exec-9] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Нет сотрудника с id 34
-21:04:25.270 [http-nio-8080-exec-9] ERROR r.s.h.c.h.s.EmployeeServiceImpl - Id не найден!)
-21:04:32.651 [http-nio-8080-exec-10] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения полной информации о сотрудниках
-21:04:32.663 [http-nio-8080-exec-10] DEBUG r.s.h.c.h.s.EmployeeServiceImpl - Сотрудники получены [EmployeeFullInfo(name=Dima, salary=1500, positionName=management), EmployeeFullInfo(name=Nata, salary=1000, positionName=development), EmployeeFullInfo(name=Kate, salary=800, positionName=exploitation), EmployeeFullInfo(name=Alena, salary=800, positionName=exploitation), EmployeeFullInfo(name=Alex
-, salary=900, positionName=management), EmployeeFullInfo(name=Valeron, salary=1300, positionName=development), EmployeeFullInfo(name=Elizabeth
-, salary=950, positionName=development), EmployeeFullInfo(name=Nicole
-, salary=900, positionName=exploitation), EmployeeFullInfo(name=Medina, salary=1200, positionName=management)]
-21:06:53.683 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
-org.postgresql.util.PSQLException: �����: ������������ "postgres" �� ������ �������� ����������� (�� ������)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:646)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:180)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:235)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:49)
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:223)
-	at org.postgresql.Driver.makeConnection(Driver.java:468)
-	at org.postgresql.Driver.connect(Driver.java:267)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
-	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:316)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:229)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:197)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1156)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294)
-	at ru.skypro.hw2.course4.hw2course4.Application.main(Application.java:10)
-21:06:53.689 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-21:06:53.711 [main] ERROR o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1156)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:931)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:608)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294)
-	at ru.skypro.hw2.course4.hw2course4.Application.main(Application.java:10)
-Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:277)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:229)
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:197)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:166)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1380)
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1451)
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
-	... 16 common frames omitted
-Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'javax.persistence.jdbc.url', 'hibernate.connection.url', or 'hibernate.dialect')
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:188)
-	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:274)
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
-	... 31 common frames omitted
-21:07:31.509 [http-nio-8080-exec-8] INFO  r.s.h.c.h.s.EmployeeServiceImpl - Вызван метод получения полной информации о сотрудниках
-21:07:31.522 [http-nio-8080-exec-8] DEBUG r.s.h.c.h.s.EmployeeServiceImpl - Сотрудники получены [EmployeeFullInfo(name=Dima, salary=1500, positionName=management), EmployeeFullInfo(name=Nata, salary=1000, positionName=development), EmployeeFullInfo(name=Kate, salary=800, positionName=exploitation), EmployeeFullInfo(name=Alena, salary=800, positionName=exploitation), EmployeeFullInfo(name=Alex
-, salary=900, positionName=management), EmployeeFullInfo(name=Valeron, salary=1300, positionName=development), EmployeeFullInfo(name=Elizabeth
-, salary=950, positionName=development), EmployeeFullInfo(name=Nicole
-, salary=900, positionName=exploitation), EmployeeFullInfo(name=Medina, salary=1200, positionName=management)]
+12:30:26.096 [main] INFO  r.s.h.course4.hw2course4.Application - Starting Application using Java 17.0.6 with PID 4708 (C:\Users\TK5\IdeaProjects\SkyPro\HW2.Course4\target\classes started by TK5 in C:\Users\TK5\IdeaProjects\SkyPro\HW2.Course4)
+12:30:26.102 [main] INFO  r.s.h.course4.hw2course4.Application - No active profile set, falling back to 1 default profile: "default"
+12:30:27.098 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+12:30:27.197 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 5 JPA repository interfaces.
+12:30:27.899 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+12:30:27.910 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+12:30:27.911 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+12:30:27.912 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+12:30:28.053 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:30:28.054 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1894 ms
+12:30:28.270 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+12:30:28.346 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.2.Final
+12:30:28.349 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+12:30:28.552 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+12:30:28.763 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+12:30:28.787 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+12:30:29.011 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58aa5c94
+12:30:29.014 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+12:30:29.090 [main] INFO  org.hibernate.orm.dialect - HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@502c087e
+12:30:29.462 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+12:30:30.475 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+12:30:30.615 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+12:30:31.049 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+12:30:31.880 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+12:30:32.042 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@51413d02, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@406ea770, org.springframework.security.web.context.SecurityContextHolderFilter@31cae1e4, org.springframework.security.web.header.HeaderWriterFilter@1caff0db, org.springframework.security.web.authentication.logout.LogoutFilter@78181f7f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6a7c0932, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@553d9329, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4ad113d6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7b14e7dc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38e61b69, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23fed844, org.springframework.security.web.access.ExceptionTranslationFilter@34b294c4, org.springframework.security.web.access.intercept.AuthorizationFilter@7dcd8e74]
+12:30:33.026 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+12:30:33.057 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+12:30:33.070 [main] INFO  r.s.h.course4.hw2course4.Application - Started Application in 7.482 seconds (process running for 8.516)
+12:32:29.376 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+12:32:29.379 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+12:32:29.383 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
